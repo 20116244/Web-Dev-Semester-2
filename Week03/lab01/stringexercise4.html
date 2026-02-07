@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>String Exercise 4</title>
+	<style>
+		body {
+			width: 400px;
+			margin: 0 auto;
+		}
+
+		p {
+			border: solid black 1px;
+			height: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>String Exercise Four</h1>
+	<p id="input"></p>
+	<p id="letters"></p>
+	<p id="numbers"></p>
+	<button>String Exercise 4</button>
+
+	<script>
+		const btn = document.querySelector('button');
+
+		btn.addEventListener('click', (evt) => {
+			let courseCode = prompt("Enter your Course Code", "");
+			document.querySelector("#input").textContent = courseCode;
+			document.querySelector("#letters").textContent = courseCode.substring(0, 2);
+			document.querySelector("#numbers").textContent = courseCode.substring(2);
+		});
+	</script>
+
+</body>
+
+</html>

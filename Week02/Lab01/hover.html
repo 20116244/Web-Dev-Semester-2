@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hover</title>
+    <style>
+        #myDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+        }
+
+        .para-style {
+            background-color: green !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hover</h1>
+
+    <div id="myDiv"></div>
+
+    <script>
+        const div = document.querySelector('#myDiv');
+
+        div.addEventListener('mouseenter', (evt) => {
+            div.classList.add('para-style');
+        });
+
+        div.addEventListener('mouseleave', (evt) => {
+            div.classList.remove('para-style');
+        })
+
+        // Not sure why the hovering wasn't working, i tried adding word to the console and they
+        // were showing up, i added !important and it worked.
+    </script>
+</body>
+
+</html>

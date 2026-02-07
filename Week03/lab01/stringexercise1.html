@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>String Exercise 1</title>
+	<style>
+		body {
+			width: 400px;
+			margin: 0 auto;
+		}
+
+		p {
+			border: solid black 1px;
+			height: 20px;
+		}
+	</style>
+
+</head>
+
+
+
+<body>
+	<h1>String Exercise One</h1>
+	<p id="length"> </p>
+	<p id="firstChar"> </p>
+	<p id="lastChar"> </p>
+	<button>String Exercise 1</button>
+	<script>
+
+		const btn = document.querySelector('button');
+
+		btn.addEventListener('click', (evt) => {
+			let name = prompt("Enter your name", "");
+			let len = name.length;
+			document.querySelector("#length").textContent = len;
+			document.querySelector("#firstChar").textContent = name.charAt(0);
+			document.querySelector("#lastChar").textContent = name.charAt(len - 1);
+		});
+
+	</script>
+
+</body>
+
+</html>
