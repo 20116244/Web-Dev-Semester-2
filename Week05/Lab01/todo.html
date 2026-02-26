@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <h1>To Do List</h1>
+    <p></p>
+    <script>
+
+        let todos = ["study", "exercise", "cook"];
+        let para = document.querySelector('p');
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+        todos.push("relax", "sleep");
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+        todos.unshift("wakeup", "walk");
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+        todos.pop()
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+        todos.shift()
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+        let pos1 = todos.indexOf("exercise");
+        if (pos1 > -1) {
+            todos.splice(pos1, 1, "read")
+        }
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+        let pos2 = todos.indexOf("read");
+        if (pos2 > -1) {
+            todos.splice(pos2, 0, "meditate")
+        }
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+        todos.sort();
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+        todos.reverse();
+        para.insertAdjacentHTML('beforeend', `${todos.join(", ")}<br>`);
+
+    </script>
+</body>
+
+</html>
