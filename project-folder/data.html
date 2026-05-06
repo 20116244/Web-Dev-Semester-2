@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mélanie Garcia JavaScript Assignement</title>
+    <!-- im importing my css for this page -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="dataPage">
+    <h1>Data collection</h1>
+    <nav>
+        <!-- this is to access about page -->
+        <a href="index.html">Back to Index</a>
+        <!-- this is to access my data page -->
+        <a href="about.html">About Page</a>
+    </nav>
+    <h1>This project is a challenging data collection set about peoples pets.</h1>
+    <p>Please use headphones for best experience.</p>
+    <p>In this page you will be able to send comments, just chose a name, a profile picture and type your comment. </p>
+    <p>Each comment is stored even after refreshing the page, please try it !</p>
+    <p>You can also "like" your favorite comment by giving a bone, try it too !</p>
+    <p>Did you try the toggle theme button ? If the white hurts your eyes...</p>
+    <!-- this is my comment form so user can enter the datas -->
+    <form id="commentForm">
+        <!-- this input is a text, user enter their name, its a required data -->
+        <input type="text" name="name" placeholder="Your name" required>
+        <!-- this input is the profile picture (file), user chose in their folders, its a required data -->
+        <input type="file" name="img" accept="image/*" required>
+        <!-- this input is a text, user enter their comment, its a required data -->
+        <textarea name="message" placeholder="Your comment" required></textarea>
+        <!-- this input is my submit comment button, required for the comment to show up on screen -->
+        <button type="submit">Add Comment</button>
+    </form>
+    <!-- this where all individual comments show up -->
+    <div id="commentsResults"></div>
+    <!-- handlebars -->
+    <script id="comments-template" type="text/x-handlebars-template">
+          <!-- Im using a EACH because EACH object will be different and i need to ID them individually -->
+  {{#each comments}}
+    <!-- this is where comment data start -->
+    <div class="comment">
+        <!-- this input is the user name used in commentForm -->
+        <h4>{{name}}</h4>
+        <!-- this input is the profile picture (file) used in commentForm -->
+        <img src="{{img}}" class="comment-avatar" alt="profile picture">
+        <!-- this input is the user message sent in commentForm -->
+        <p>{{message}}</p>
+        <!-- this is a button to give "likes" to EACH individual comment, EACH comment have one -->
+        <button class="bone-btn" data-index="{{@index}}">
+            <!-- Write the emote and "Bone" + data is persistant with eventclick on EACH comment and time it has been clicked by users -->
+            🦴 Bone (<span>{{bones}}</span>)
+        </button>
+    </div>
+    <!-- end of each -->
+    {{/each}}
+    </script>
+    <!-- this is my pop up notification -->
+    <div id="toast" class="toast">
+        <!-- the message displayed is in my JS file -->
+        <span id="toastText"></span>
+    </div>
+    <footer>
+        <!-- button with ID to toggle a different color theme for this page.-->
+        <button id="themeToggle">Toggle theme</button>
+    </footer>
+    <!-- Handlebars import -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <!-- This is to import my JS -->
+    <script src="js/script.js" defer></script>
+</body>
+
+</html>

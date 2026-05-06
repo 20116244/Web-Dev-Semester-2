@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mélanie Garcia JavaScript Assignement</title>
+    <!-- im importing my css for this page -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="aboutPage">
+
+    <h1>Add and sort your pets !</h1>
+    <nav>
+        <!-- this is to access about page -->
+        <a href="index.html">Back to Index</a>
+        <!-- this is to access my data page -->
+        <a href="data.html">Data Page</a>
+    </nav>
+    <p>In this page, you will be able to add your pets, don't forget to fill all fields.</p>
+    <p>All fields are mandatory, pictures included. You can also search by name or race, any character will work. </p>
+    <p>Real time pet in data will show up too.</p>
+    <p>You can also sort by alphabetical order or descending order.</p>
+    <!-- this is my form with id "petForm" -->
+    <form id="petForm">
+        <!-- the input will be a name and its a required field -->
+        <input id="name" placeholder="Name" required>
+        <!-- the input will be the specie of the object and its a required field -->
+        <input id="species" placeholder="Species" required>
+        <!-- the input will be the race of the object and its a required field -->
+        <input id="race" placeholder="Race" required>
+        <!-- the input will be the year of birth of the object and its a required field -->
+        <input id="yearOfBirth" placeholder="Year" required>
+        <!-- the input will be the coat color of the object and its a required field -->
+        <input id="coat" placeholder="Coat" required>
+        <!-- the input will be a file for the object and its a required field -->
+        <input type="file" name="img" accept="image/*">
+        <!-- This is my submit button, it does alarm if required field are missing -->
+        <button type="submit">Add Pet</button>
+    </form>
+    <!-- This is my search area, it allow users to search by name or race (it can be partial data in each, still will fetch datas) -->
+    <input id="searchInput" placeholder="Search by name or race">
+    <!-- This is my data counter, its linked to my JS, it will show you in real time the datas in real time (js) -->
+    <p id="petCount"></p>
+    <!-- This is my button to sort from alphabetical order -->
+    <button id="sortAsc">Sort A-Z</button>
+    <!-- This is my button to sort from reverse alphabetical order -->
+    <button id="sortDesc">Sort Z-A</button>
+    <!-- This will display the result of the data counter based on the searchInput datas with id "searchInput" -->
+    <div id="petsResults"></div>
+
+    <!-- handlebars -->
+    <script id="pets-template" type="text/x-handlebars-template">
+<!-- Im using a EACH because i have many object with the same sub informations to import here -->
+  {{#each pets}}
+    <!-- This line is to make card-->
+    <div class="card">
+        <!-- This is to tell it to import the name of the object stored in my JS -->
+        <h3>{{name}}</h3>
+        <!-- Write Species: and import my data "species" from my JS for EACH object -->
+        <p><strong>Species:</strong> {{species}}</p>
+        <!-- Write Race: and import my data "race" from my JS for EACH object -->
+        <p><strong>Race:</strong> {{race}}</p>
+        <!-- Write Year: and import my data "yearOfBirth" from my JS for EACH object -->
+        <p><strong>Year:</strong> {{yearOfBirth}}</p>
+        <!-- Write Coat: and import my data "coat" from my JS for EACH object -->
+        <p><strong>Coat:</strong> {{coat}}</p>
+        <!-- Import the image data "pets-img" from my JS for EACH object -->
+        <img src="{{img}}" alt="{{name}}" class="pets-img">
+        <!-- This is my delete button, included in the EACH and is linked by EACH ID so when you delete it only delete this precise object -->
+        <button class="delete-btn" data-id="{{id}}">Delete</button>
+    </div>
+    {{/each}}
+    <!-- END of each -->
+    </script>
+    <!-- Handlebars import -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+    <footer>
+        <!-- button with ID to toggle a different color theme for this page.-->
+        <button id="themeToggle">Toggle theme</button>
+    </footer>
+    <!-- This is to import my JS -->
+    <script src="js/script.js"></script>
+</body>
